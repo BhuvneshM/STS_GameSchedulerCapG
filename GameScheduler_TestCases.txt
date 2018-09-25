@@ -1,0 +1,184 @@
+---------Pojo----------------
+Game.java    		[String gameName,  byte noOfPlayers]
+Player.java  		[String playerName, Set<Game> games]
+Day.java    		[String dayName, Set<Game> games]
+
+GameReport.java  	[String gameName, List<Player> players, List<Day> days]
+PlayerReport.java 	[String playername, Map<Game,List<Day>> map]
+DayReport.java      [String dayName, Map<Game, List<Player>> games]
+---------Services------------
+GameService.java  --i-->   [public Game add(Game game);]
+GameServiceImpl.java
+
+PlayerService.java  --i--> [public Player add(Player player);]
+PlayerServiceImpl.java
+
+DayService.java    --i-->  [public Day add(Day day);] 
+DayServiceImpl.java
+
+ReportService.java   --i->
+ReportServiceImpl.java
+---------Repo----------------
+DayRepo.java   --i->   [save(Day d);    findByPlayerName(String playerName); findByGamesName(String gameName);]
+DayRepoImpl.java
+
+GameRepo.java   --i->  [save(Game g);   findByName(String name);]
+GameRepoImpl.java   
+
+PlayerRepo.java  --i-> [save(Player p); findByDayName(String dayName); findByGamesName(String gameName);]
+PlayerRepoImpl.java
+************************************************************************************
+
+
+
+
+
+
+
+
+***************TestCases For Services****************************
+1) GameService.java   --i-->[public Game add(Game game);]
+-------------------
+i)  Null Games cannot be added.
+ii) Game Name cannot be null.
+iii)Two Games with same name cannot be added.
+iv) Valid Games should be added.
+------------------------------------------
+2) GameServiceImpl.java
+---------------------
+************************************************************************************
+3) PlayerService.java  --i--> [public Player add(Player player);]
+---------------------
+i)  Null player cannot be added.
+ii) Player name cannot be null.
+iii)Two player with same name cannot be added.
+iv) Valid player should be added.
+---------------------------------------
+4) PlayerServiceImpl.java
+---------------------
+************************************************************************************
+
+5) DayService.java  --i--> [public Day add(Day day);]
+---------------------
+i)  Null day cannot be added.
+ii) day cannot be null.
+iii)same day cannot be added.
+iv) Valid day should be added.
+---------------------------------------
+6) DayServiceImpl.java
+---------------------
+************************************************************************************
+
+7) ReportService.java  --i-> [GameReport gameWiseReport(String gameName);  
+							  PlayerReport playerWiseReport(String playerName); 
+							  DayReport dayWiseReport(String dayName);]
+---------GameReport gameWiseReport(String gameName)------------
+i)  Game name can not be null.
+ii) null name can not be added.
+iii)Given Game is not scheduled, if no record found.
+   [i.e Game is not schedule in any day and No player is playing this game.]
+---------------------------------------
+---------PlayerReport playerWiseReport(String playerName)------------
+i)  Player name can not be null.
+ii) null value can not be passed.
+iii)Player is not exist, if no record found. (i.e This player has not played any game on a day)
+---------------------------------------
+---------DayReport dayWiseReport(String dayName)------------
+i)  Null day cannot be passed.
+ii) day cannot be null.
+iii) Valid day should be added.
+---------------------------------------
+8) ReportServiceImpl.java
+---------------------
+************************************************************************************
+
+
+
+------------------
+Repository**
+------------------
+
+
+
+***************TestCases For Repository****************************
+1) GameRepo.java :  --i->  [save(Game g);  findByName(String name);]
+-----save(Game g);-------------
+i)  Null games cannot be added.
+ii) Game name cannot be null.
+iii)Two games with same name cannot be added.
+iv) Valid Game should be added.
+-----findByName(String name)----
+i)  Null value can not passed.
+ii) String data only should be passed.
+iii)No Game is scheduled, if it returns null.
+--------------------------------------------------
+2) GameRepoImpl.java :
+--------------------- 
+************************************************************************************
+
+3) PlayerRepo.java : --i-> [save(Player p); findByDayName(String dayName); findByGamesName(String gameName);]
+----save(Player p)-----------------
+i)  Player name can not be null.
+ii) valid name should be added .
+iii)null value can not be added.
+iv) Only String values should be added.
+v)  same player can not be added again.
+
+---------------------------------------
+----findByDayName(String dayName)-----------------
+i)  null value can not be passed.
+ii) only string name should be passed.
+iii)This player is not present, if no record found.
+---------------------------------------
+----findByGamesName(String gameName)-----------------
+i)  Null value can not passed
+ii) Only String data should be passed
+iii)Player is not playing this game,if not found.
+ 
+---------------------------------------
+4) PlayerRepoImpl.java
+---------------------
+************************************************************************************
+
+5) DayRepo.java   --i->   [save(Day d);  findByPlayerName(String playerName); findByGamesName(String gameName);]
+---------------------
+----save(Day d)-----------------
+i)  Day name can not be null.
+ii) null value can not be added.
+iii)same day should not be added.
+v)  Valid day should be added.
+---------------------------------------
+----findByPlayerName(String playerName)----------------
+i)  null value can not be passed.
+ii) only string name should be passed.
+iii)This player is not present, if no record found.
+---------------------------------------
+----findByGamesName(String gameName)----------------
+i)  null value can not be passed
+ii) only string name should be passes
+iii)if not found ..This game is not playes on this day
+
+---------------------------------------
+6) DayRepoImpl.java
+---------------------
+-------------------------------------------------------------------------------
+************************************************************************************
+
+
+************************************************************************************
+https://github.com/kulsagar/CI_Training/blob/master/training/src/test/java/ci/training/WalletServiceTest.java
+https://github.com/kulsagar/CI_Training/blob/master/training/src/main/java/ci/training/repo/WalletRepo.java
+https://github.com/kulsagar/CI_Training/blob/master/training/src/test/java/ci/training/WalletServiceTest.java
+https://github.com/kulsagar/CI_Training/blob/master/training/pom.xml
+
+https://github.com/kulsagar/MavenSetting.XML/blob/master/settings.xml (required 2 changes as below)
+  1) <localRepository>D:\sagar\Training\May 16\CI_Training\MavenLocalRepo</localRepository>  (53 line)
+  2) <url>http://10.109.32.183:8081/nexus/content/groups/public</url>  (178 line)
+  
+ -->goto sts IDE:: Window-->maven--> User Setting(path change [C:\Users\BHUUVNESH\.m2\settings.xml ] 
+ it takes above local-repo path automatically like C:\Users\bhmathur\.m2\repository)
+---------------------------------------------------------------------------------------
+	  
+nexes server
+************************************************************************************
+
