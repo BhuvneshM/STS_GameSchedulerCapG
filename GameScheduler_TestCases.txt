@@ -181,4 +181,4 @@ https://github.com/kulsagar/MavenSetting.XML/blob/master/settings.xml (required 
 	  
 nexes server
 ************************************************************************************
-
+https://github.com/ajayknit2011/GameSchedulerMaven (AjayThakur)
