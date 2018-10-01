@@ -1,3 +1,5 @@
+JavamadeSoeasy
+
 ---------Pojo----------------
 Game.java    		[String gameName,  byte noOfPlayers]
 Player.java  		[String playerName, Set<Game> games]
