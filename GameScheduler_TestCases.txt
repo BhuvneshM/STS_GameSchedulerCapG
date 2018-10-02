@@ -3,7 +3,9 @@ JavaTPoint
 JavamadeSoeasy
 javaconceptoftheday
 JounralDev
-
+Kathy Sierra Java 8 (Book)
+Safari,Enthuware,Udemy.com, Udacity(Paid Site)
+Pluralsight.com (Best Paid Site)
 ---------Pojo----------------
 Game.java    		[String gameName,  byte noOfPlayers]
 Player.java  		[String playerName, Set<Game> games]
