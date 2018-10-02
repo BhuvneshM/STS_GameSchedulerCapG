@@ -1,4 +1,8 @@
+******Learn Java::************************************
+JavaTPoint
 JavamadeSoeasy
+javaconceptoftheday
+JounralDev
 
 ---------Pojo----------------
 Game.java    		[String gameName,  byte noOfPlayers]
